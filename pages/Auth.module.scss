@@ -1,0 +1,9 @@
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  height: 100vh;
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+}

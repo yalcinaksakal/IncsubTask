@@ -1,0 +1,39 @@
+.container {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 35%;
+  height: 100vh;
+  background: dodgerblue;
+  color: white;
+  padding-top: 50vh;
+  padding-bottom: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  h1,
+  p {
+    width: 60%;
+    margin: 5px auto;
+    @media (max-width: 400px) {
+      width: 100%;
+    }
+  }
+  h1 {
+    text-align: center;
+  }
+  @media (max-width: 500px) {
+    left: 0;
+    width: 100%;
+    height: 25%;
+    padding: 20px;
+    justify-content: center;
+    h1,
+    p {
+      width: 90%;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
+}

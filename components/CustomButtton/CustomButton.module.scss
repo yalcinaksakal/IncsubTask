@@ -1,0 +1,28 @@
+.custom-button {
+  width: 100%;
+
+  letter-spacing: 0.5px;
+  line-height: 50px;
+
+  font-size: 16px;
+  background: transparent;
+  border: none;
+  background: rgba(30, 143, 255, 0.707);
+  border-radius: 5px;
+  color: white;
+  margin: 10px 10px 0 0;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  &:hover {
+    background: dodgerblue;
+  }
+  &.disabled {
+    background: gray;
+  }
+  &.red {
+    background: rgb(248, 88, 88);
+  }
+  &.red:hover {
+    background: red;
+  }
+}
