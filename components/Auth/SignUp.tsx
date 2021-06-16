@@ -4,8 +4,12 @@ import CustomButton from "../CustomButtton/CustomButton";
 import { auth, createUserProfileDocument } from "../../utils/firebase.utils";
 import React, { useState } from "react";
 import Spinner from "../Spinner/Spinner2";
+import checkValidity from "../../lib/checkValidity";
+import { useDispatch } from "react-redux";
+import { signUpActions } from "../../store/sign-up-slice";
 const SignUp: React.FC = () => {
   const [step, setStep] = useState(0);
+  const dispatch = useDispatch();
   const [credentials, setCredentials] = useState<{ [key: string]: string }>({
     displayName: "",
     email: "",
@@ -22,6 +26,11 @@ const SignUp: React.FC = () => {
   ) => {
     const { name, value } = e.currentTarget;
     setCredentials(prev => ({ ...prev, [name]: value }));
+    // { touched: false, valid: false, err: "" },
+    const validityResult = checkValidity(name, value);
+    dispatch(
+      signUpActions.setField({ name, touched: true, ...validityResult })
+    );
   };
   const handleSignUp = async () => {
     setFormErr("");
@@ -68,7 +77,7 @@ const SignUp: React.FC = () => {
             <form>
               {[
                 { type: "text", name: "displayName", label: "Your Name" },
-                { type: "text", name: "email", label: "Email Adress" },
+                { type: "text", name: "email", label: "Email Address" },
                 {
                   type: "select",
                   name: "userType",
