@@ -11,6 +11,7 @@ const SignUp: React.FC = () => {
     email: "",
     pwd: "",
     confirmPwd: "",
+    userType: "",
   });
   const [formErr, setFormErr] = useState("");
   const [isLoading, setIsLoading] = useState(false);

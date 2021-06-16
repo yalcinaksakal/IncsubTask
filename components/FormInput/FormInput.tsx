@@ -28,6 +28,9 @@ const FormInput: React.FC<{
             {label}
           </label>
         ) : null}
+        {otherProps.name === "pwd" && (
+          <p className={styles.warning}>Minumum 8 characters</p>
+        )}
       </>
     ) : (
       <>

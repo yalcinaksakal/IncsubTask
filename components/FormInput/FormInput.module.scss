@@ -5,8 +5,12 @@
 
 .group {
   position: relative;
-  margin: 30px 0;
-
+  margin: 40px 0;
+  .warning {
+    font-size: 12px;
+    position: absolute;
+    top: 35px;
+  }
   .form-input {
     background: none;
     background-color: white;
