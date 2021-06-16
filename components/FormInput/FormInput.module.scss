@@ -10,6 +10,12 @@
     font-size: 12px;
     position: absolute;
     top: 35px;
+    &.redWarn {
+      color: red;
+    }
+  }
+  input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px white inset;
   }
   .form-input {
     background: none;
@@ -24,6 +30,9 @@
     border: 1px solid rgba(214, 214, 214, 0.768);
     border-radius: 4px;
     margin: 25px 0;
+    &.redBorder {
+      border-color: red;
+    }
     @media (max-width: 400px) {
       width: 80vw;
     }
@@ -54,7 +63,9 @@
     left: 10px;
     top: 10px;
     transition: 300ms ease all;
-
+    &.redLabel {
+      color: red;
+    }
     &.shrink {
       @include shrinkLabel();
     }

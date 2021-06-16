@@ -5,11 +5,15 @@ import { auth, createUserProfileDocument } from "../../utils/firebase.utils";
 import React, { useState } from "react";
 import Spinner from "../Spinner/Spinner2";
 import checkValidity from "../../lib/checkValidity";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signUpActions } from "../../store/sign-up-slice";
+import { RootState } from "../../store";
 const SignUp: React.FC = () => {
   const [step, setStep] = useState(0);
   const dispatch = useDispatch();
+
+  const { isFormValid } = useSelector((state: RootState) => state.signUp);
+
   const [credentials, setCredentials] = useState<{ [key: string]: string }>({
     displayName: "",
     email: "",
@@ -26,23 +30,32 @@ const SignUp: React.FC = () => {
   ) => {
     const { name, value } = e.currentTarget;
     setCredentials(prev => ({ ...prev, [name]: value }));
-    // { touched: false, valid: false, err: "" },
-    const validityResult = checkValidity(name, value);
-    dispatch(
-      signUpActions.setField({ name, touched: true, ...validityResult })
-    );
+
+    if (name !== "confirmPwd") {
+      const validityResult = checkValidity(name, value);
+      dispatch(
+        signUpActions.setField({ name, touched: true, ...validityResult })
+      );
+    } else {
+      dispatch(
+        signUpActions.setField({
+          name,
+          touched: true,
+          valid: value === pwd,
+          err:
+            value === pwd
+              ? ""
+              : "Password and Confirm Password have to be same",
+        })
+      );
+    }
   };
   const handleSignUp = async () => {
     setFormErr("");
-
-    if (pwd !== confirmPwd) {
-      setFormErr("Password and Confirm Password do not match");
-      return;
-    }
+    setStep(0);
     setIsLoading(true);
     try {
       const { user } = await auth.createUserWithEmailAndPassword(email, pwd);
-
       await createUserProfileDocument(user, { displayName });
     } catch (err) {
       setFormErr(err.message);
@@ -100,7 +113,7 @@ const SignUp: React.FC = () => {
                   required={false}
                 ></FormInput>
               ))}
-              <CustomButton disabled={false} onClick={handleSteps}>
+              <CustomButton disabled={!isFormValid} onClick={handleSteps}>
                 Next
               </CustomButton>
             </form>
