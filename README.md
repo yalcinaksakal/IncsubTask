@@ -12,4 +12,6 @@ state management: redux, redux toolkit
 
 sign-in/up with email/pwd and logout functionality
 
+mobile compatible, responsive page design 
+
 https://incsub-task.vercel.app/
