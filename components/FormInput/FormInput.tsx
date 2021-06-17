@@ -2,6 +2,7 @@ import styles from "./FormInput.module.scss";
 
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 const FormInput: React.FC<{
   onChange: (
@@ -17,6 +18,11 @@ const FormInput: React.FC<{
     (state: RootState) => state.signUp
   ).formFields[otherProps.name];
 
+  const [showPwd, setShowPwd] = useState(false);
+  const handleToggleEye = () => {
+    setShowPwd(prevState => !prevState);
+  };
+
   return (
     <div className={styles.group}>
       {otherProps.type !== "select" ? (
@@ -27,7 +33,17 @@ const FormInput: React.FC<{
             }`}
             onChange={onChange}
             {...otherProps}
+            type={showPwd ? "text" : otherProps.type}
           />
+          {otherProps.name === "pwd" || otherProps.name === "confirmPwd" ? (
+            <img
+              className={styles.eye}
+              src={`/eye${showPwd ? "2" : ""}.png`}
+              alt={`${showPwd ? "show" : "hide"}`}
+              title={`${showPwd ? "hide" : "show"}`}
+              onClick={handleToggleEye}
+            />
+          ) : null}
           {label ? (
             <label
               className={`${styles["form-input-label"]} ${

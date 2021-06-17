@@ -51,7 +51,13 @@
   input[type="password"] {
     letter-spacing: 0.3em;
   }
-
+  .eye {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 20px;
+    cursor: pointer;
+  }
   .form-input-label {
     background: white;
     color: gray;
