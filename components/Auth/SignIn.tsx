@@ -57,6 +57,7 @@ const SignIn: React.FC<{ clicked: () => void }> = ({ clicked }) => {
         <span className={styles.signIn} onClick={clicked}>
           Sign Up
         </span>
+        <p style={{ color: "red" }}>{err}</p>
         <form onSubmit={handleSubmit}>
           <FormInput
             onChange={handleChange}
@@ -78,7 +79,6 @@ const SignIn: React.FC<{ clicked: () => void }> = ({ clicked }) => {
             Sign In
           </CustomButton>
         </form>
-        <p style={{ color: "red" }}>{err}</p>
       </div>
     </div>
   );

@@ -90,6 +90,7 @@ const SignUp: React.FC<{ clicked: () => void }> = ({ clicked }) => {
         </span>
         {step === 0 ? (
           <>
+            <p style={{ color: "red" }}>{formErr}</p>
             <form>
               {[
                 { type: "text", name: "displayName", label: "Your Name" },
@@ -120,7 +121,6 @@ const SignUp: React.FC<{ clicked: () => void }> = ({ clicked }) => {
                 Next
               </CustomButton>
             </form>
-            <p style={{ color: "red" }}>{formErr}</p>
           </>
         ) : (
           <>
