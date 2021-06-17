@@ -5,10 +5,10 @@ import CustomButton from "../CustomButtton/CustomButton";
 import FormInput from "../FormInput/FormInput";
 import styles from "./SignIn.module.scss";
 
-import Spinner from "../Spinner/Spinner2";
+import Spinner from "../Spinner/Spinner";
 
-const SignIn: React.FC = () => {
-  const [authData, setAuthData] = useState({ email: "", pwd: "" });
+const SignIn: React.FC<{ clicked: () => void }> = ({ clicked }) => {
+  const [authData, setAuthData] = useState({ email: "", confirmPwd: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [err, setErr] = useState("");
 
@@ -17,8 +17,11 @@ const SignIn: React.FC = () => {
     setErr("");
     try {
       setIsLoading(true);
-      await auth.signInWithEmailAndPassword(authData.email, authData.pwd);
-      setAuthData({ email: "", pwd: "" });
+      await auth.signInWithEmailAndPassword(
+        authData.email,
+        authData.confirmPwd
+      );
+      setAuthData({ email: "", confirmPwd: "" });
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
@@ -49,8 +52,11 @@ const SignIn: React.FC = () => {
   ) : (
     <div className={styles["sign-in"]}>
       <div className={styles.container}>
-        <h1 className={styles.title}>I already have an account</h1>
-        <span>Sign in with your email and password</span>
+        <h1 className={styles.title}>Sign in with your email and password</h1>
+        <span>I don't have an account</span>
+        <span className={styles.signIn} onClick={clicked}>
+          Sign Up
+        </span>
         <form onSubmit={handleSubmit}>
           <FormInput
             onChange={handleChange}
@@ -62,9 +68,9 @@ const SignIn: React.FC = () => {
           />
           <FormInput
             onChange={handleChange}
-            name="pwd"
+            name="confirmPwd"
             type="password"
-            value={authData.pwd}
+            value={authData.confirmPwd}
             label="Password"
             required
           />

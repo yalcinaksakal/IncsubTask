@@ -3,7 +3,7 @@ import styles from "./SignUp.module.scss";
 import CustomButton from "../CustomButtton/CustomButton";
 import { auth, createUserProfileDocument } from "../../utils/firebase.utils";
 import React, { useState } from "react";
-import Spinner from "../Spinner/Spinner2";
+import Spinner from "../Spinner/Spinner";
 import checkValidity from "../../lib/checkValidity";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpActions } from "../../store/sign-up-slice";

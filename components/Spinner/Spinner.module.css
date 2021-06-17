@@ -1,23 +1,26 @@
 .container {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
 }
 
 .spinner {
   margin: 20px auto;
-  width: 50px;
   height: 40px;
   text-align: center;
   font-size: 10px;
 }
 
 .spinner > div {
-  background-color: orange;
-  height: 100%;
-  margin: 0 1px;
-  width: 4px;
+  background-color: dodgerblue;
+  height: 80px;
+  margin: 0 2px;
+  width: 8px;
   display: inline-block;
   animation: sk-stretchdelay 1.2s infinite ease-in-out;
 }
