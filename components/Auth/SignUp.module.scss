@@ -5,11 +5,11 @@
   justify-content: center;
   width: 65%;
   height: 100%;
-  margin: 50px 0;
+  margin-top: 80px;
   position: relative;
   .steps {
     position: absolute;
-    top: 5px;
+    top: -30px;
     right: 10px;
     display: flex;
     align-items: center;
@@ -28,7 +28,7 @@
 
     @media (max-width: 500px) {
       right: -15vw;
-      top: 20vh;
+      top: 130px;
     }
   }
 
