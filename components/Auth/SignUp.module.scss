@@ -5,7 +5,9 @@
   justify-content: center;
   width: 65%;
   height: 100vh;
-  padding-top: 50px;
+  @media (max-width: 500px) {
+    padding-top: 100px;
+  }
   position: relative;
   .steps {
     position: absolute;

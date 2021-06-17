@@ -22,7 +22,7 @@ const SignIn: React.FC<{ clicked: () => void }> = ({ clicked }) => {
         authData.confirmPwd
       );
       setAuthData({ email: "", confirmPwd: "" });
-      setIsLoading(false);
+      // setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
       setErr("Invalid email or password");
