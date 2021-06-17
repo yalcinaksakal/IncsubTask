@@ -1,9 +1,15 @@
 incsub task: sign in up page
 
-backend next.js, firestore
+backend: next.js, firestore
 
-front end react, typescript
+auth:firebase.auth
 
-redux, redux toolkit and redux-persist
+front end: react, typescript , redux
 
-sign-in/up with email/pwd with firebase.auth
+style: sass, css-modules
+
+state management: redux, redux toolkit
+
+sign-in/up with email/pwd and logout functionality
+
+https://incsub-task.vercel.app/
