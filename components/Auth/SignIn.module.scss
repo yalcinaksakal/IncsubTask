@@ -1,11 +1,16 @@
 .sign-in {
-  width: 50vw;
-  min-width: 250px;
   display: flex;
   flex-direction: column;
-align-items: flex-start;
-  @media (max-width: 500px) {
-    width: 80vw;
-    align-items: center;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  height: 100%;
+  margin: 50px 0;
+ 
+  .container {
+    width: 50vw;
+    max-width: 400px;
+    min-width: 250px;
   }
+ 
 }

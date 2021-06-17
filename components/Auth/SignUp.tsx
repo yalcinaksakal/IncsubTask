@@ -8,7 +8,7 @@ import checkValidity from "../../lib/checkValidity";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpActions } from "../../store/sign-up-slice";
 import { RootState } from "../../store";
-const SignUp: React.FC = () => {
+const SignUp: React.FC<{ clicked: () => void }> = ({ clicked }) => {
   const [step, setStep] = useState(0);
   const dispatch = useDispatch();
 
@@ -85,6 +85,9 @@ const SignUp: React.FC = () => {
         <h1 className={styles.title}>Let's set up your account</h1>
 
         <span>Already have an account?</span>
+        <span className={styles.signIn} onClick={clicked}>
+          Sign in
+        </span>
         {step === 0 ? (
           <>
             <form>

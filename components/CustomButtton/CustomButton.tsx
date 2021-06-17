@@ -1,6 +1,7 @@
 import styles from "./CustomButton.module.scss";
 
 const CustomButton: React.FC<{
+  type?: "submit";
   onClick?: () => void;
   disabled: boolean;
 }> = ({ children, ...otherProps }) => (
