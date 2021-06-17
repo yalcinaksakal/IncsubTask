@@ -6,16 +6,21 @@
   width: 65%;
   height: 100vh;
   padding-top: 50px;
-
+  @media (max-width: 500px) {
+    width: 90%;
+  }
   .container {
     width: 50vw;
     max-width: 400px;
-    min-width: 250px;
+   
     .signIn {
       color: dodgerblue;
       font-weight: bold;
       margin-left: 15px;
       cursor: pointer;
+    }
+    @media (max-width: 500px) {
+      width: 90%;
     }
   }
 }
